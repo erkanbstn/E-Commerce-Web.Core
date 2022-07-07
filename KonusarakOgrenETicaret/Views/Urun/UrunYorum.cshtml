@@ -1,0 +1,23 @@
+﻿@model EntityLayer.Concrete.TYorum
+@{
+    ViewData["Title"] = "UrunYorum";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/jquery-3.3.1.min.js"></script>
+
+<h1>Yorum Yap</h1>
+<br />
+<form method="post">
+    <input value="@ViewBag.urun" type="hidden" asp-for="UrunID" />
+    <br />
+    @Html.TextAreaFor(b => b.YorumIcerik, 2, 5, new { @class = "form-control" })
+    <br />
+    <br />
+    <input type="submit" value="Değişiklikleri Kaydet" class="btn btn-primary" />
+</form>
+<script>
+    $(document).ready(function () {
+        swal('Ürünü Satın Aldıysanız Yorum Yapabilirsiniz.!');
+    });
+</script>
+

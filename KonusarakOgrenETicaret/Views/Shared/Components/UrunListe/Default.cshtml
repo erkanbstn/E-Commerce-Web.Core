@@ -1,0 +1,69 @@
+﻿@model List<EntityLayer.Concrete.TUrun>
+  
+
+
+    <h2>Ürünler</h2>
+    <br />
+    @{ decimal sayi = 0;}
+    <table class="table table-hover">
+        <tr>
+            <th>
+                Ürün
+            </th>
+            <th>
+                Renk
+            </th>
+            <th>
+                Boyut
+            </th>
+            <th>
+                Fiyat
+            </th>
+            <th>
+                İndirimli Fiyat
+            </th>
+            <th>
+                Marka
+            </th>
+            <th>
+                Düzenle
+            </th>
+            <th>Yorum Yap</th>
+            <th>Satın Al</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.UrunAd
+                </td>
+                <td>
+                    @item.Renk
+                </td>
+                <td>
+                    @item.Boyut
+                </td>
+                <td>
+                    @item.Fiyat
+                </td>
+                <td>
+                    @{sayi = (item.Fiyat - (item.Fiyat * item.Indirim / 100));}
+                    @sayi
+                </td>
+                <td>
+                    @item.KullaniciID
+                </td>
+                <td>
+                    <a class="btn btn-success" href="~/Urun/UrunDuzenle/@item.UrunID">Düzenle</a>
+                </td>
+
+                <td>
+                    <a class="btn btn-warning" href="~/Urun/UrunYorum/@item.UrunID">Yorum Yap</a>
+                </td>
+                <td>
+                    <a id="satis"  class="btn btn-danger" href="~/Urun/UrunSatis/@item.UrunID">Satın Al</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <a class="btn btn-info" href="~/Urun/YeniUrun">Yeni Ürün Ekle</a>

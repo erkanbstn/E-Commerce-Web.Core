@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.TUrun
+@{
+    ViewData["Title"] = "YeniUrun";
+}
+
+<h1>Yeni Ürün</h1>
+<form method="post">
+    <label>Ürün Ad</label>
+    <input asp-for="UrunAd" type="text" class="form-control" />
+    <br />
+    <label>Ürün Renk</label>
+    <input asp-for="Renk" type="text" class="form-control" />
+    <br />
+    <label>Ürün Boyut</label>
+    <input asp-for="Boyut" type="text" class="form-control" />
+    <br />
+    <label>Ürün İndirim</label>
+    <input asp-for="Indirim" type="text" class="form-control" />
+    <br />
+    <label>Ürün Fiyat</label>
+    <input asp-for="Fiyat" type="text" class="form-control" />
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Değişiklikleri Kaydet" />
+</form>
+
